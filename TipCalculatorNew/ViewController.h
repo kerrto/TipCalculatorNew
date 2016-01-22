@@ -8,8 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *tipAmount;
+@property (strong, nonatomic) IBOutlet UITextField *billInput;
+@property (strong, nonatomic) IBOutlet UITextField *customTip;
+
+@property (strong, nonatomic) NSString * billInputString;
+@property (assign) float billInputDecimal;
+@property (assign) float customTipDecimal;
+@property (assign) float decimalCustomTipDecimal;
+
+@property (assign) float tipAmountDecimal;
+@property (nonatomic, strong) NSString *tipAmountString;
+@property (nonatomic, strong) NSString *customTipString;
+
+- (IBAction)calculateTip:(UIButton *)sender;
+- (IBAction)customTipButton:(UIButton *)sender;
 
 @end
 

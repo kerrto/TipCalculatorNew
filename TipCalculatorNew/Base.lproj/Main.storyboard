@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,109 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BillAmount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9v-Dq-euz">
+                                <rect key="frame" x="187" y="73" width="226" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="hDW-qG-mhY"/>
+                                    <constraint firstAttribute="height" constant="30" id="nMg-V6-Gdd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="38"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4AA-rR-WnA"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUF-IS-wcz">
+                                <rect key="frame" x="214" y="267" width="159" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pha-Pw-38o">
+                                <rect key="frame" x="183" y="131" width="221" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="sxl-tT-ZVX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Press for 15% Tip"/>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBG-ab-OXX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Custom Tip %" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-4S-MDC">
+                                <rect key="frame" x="223" y="347" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="3Gf-Td-XbW"/>
+                                    <constraint firstAttribute="height" constant="30" id="D9x-cS-p6l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pWV-dp-nPc"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUE-GG-AXn">
+                                <rect key="frame" x="208" y="416" width="185" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="ZYy-w6-Ipo"/>
+                                    <constraint firstAttribute="height" constant="114" id="cb2-ss-3yr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Press For Custom Tip"/>
+                                <connections>
+                                    <action selector="customTipButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pzg-8q-8Bk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c9v-Dq-euz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0s4-EH-ETE"/>
+                            <constraint firstItem="jUF-IS-wcz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1aJ-UG-4J7"/>
+                            <constraint firstItem="pha-Pw-38o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="183" id="2cL-fN-Xtq"/>
+                            <constraint firstItem="c9v-Dq-euz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="3Dx-AF-mFN"/>
+                            <constraint firstItem="sUE-GG-AXn" firstAttribute="centerX" secondItem="c9v-Dq-euz" secondAttribute="centerX" id="HhU-HQ-UIY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c9v-Dq-euz" secondAttribute="trailing" constant="167" id="OKT-Lq-kZ6"/>
+                            <constraint firstItem="aRB-4S-MDC" firstAttribute="top" secondItem="jUF-IS-wcz" secondAttribute="bottom" constant="43" id="OmL-BO-5EO"/>
+                            <constraint firstItem="sUE-GG-AXn" firstAttribute="top" secondItem="aRB-4S-MDC" secondAttribute="bottom" constant="39" id="PLq-BA-ySK"/>
+                            <constraint firstItem="pha-Pw-38o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RO3-bY-4NX"/>
+                            <constraint firstItem="pha-Pw-38o" firstAttribute="top" secondItem="c9v-Dq-euz" secondAttribute="bottom" constant="28" id="X4M-kq-z4X"/>
+                            <constraint firstItem="c9v-Dq-euz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aeh-Yj-aaS"/>
+                            <constraint firstItem="c9v-Dq-euz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ehx-3w-pdK"/>
+                            <constraint firstItem="jUF-IS-wcz" firstAttribute="centerX" secondItem="pha-Pw-38o" secondAttribute="centerX" id="ilD-6Z-UeA"/>
+                            <constraint firstItem="jUF-IS-wcz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m5W-bI-DYb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sUE-GG-AXn" secondAttribute="bottom" constant="70" id="oDP-wj-3Be"/>
+                            <constraint firstItem="aRB-4S-MDC" firstAttribute="centerX" secondItem="jUF-IS-wcz" secondAttribute="centerX" id="om1-TN-JIo"/>
+                            <constraint firstItem="sUE-GG-AXn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qli-gz-ulx"/>
+                            <constraint firstItem="pha-Pw-38o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rzw-Ce-Xry"/>
+                            <constraint firstItem="pha-Pw-38o" firstAttribute="top" secondItem="c9v-Dq-euz" secondAttribute="bottom" constant="44" id="saa-fY-kc3"/>
+                            <constraint firstItem="jUF-IS-wcz" firstAttribute="top" secondItem="pha-Pw-38o" secondAttribute="bottom" constant="8" symbolic="YES" id="wJf-Pa-EZB"/>
+                            <constraint firstItem="c9v-Dq-euz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="167" id="xeP-3D-oWP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0s4-EH-ETE"/>
+                                <exclude reference="OKT-Lq-kZ6"/>
+                                <exclude reference="aeh-Yj-aaS"/>
+                                <exclude reference="ehx-3w-pdK"/>
+                                <exclude reference="xeP-3D-oWP"/>
+                                <exclude reference="RO3-bY-4NX"/>
+                                <exclude reference="rzw-Ce-Xry"/>
+                                <exclude reference="saa-fY-kc3"/>
+                                <exclude reference="1aJ-UG-4J7"/>
+                                <exclude reference="m5W-bI-DYb"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="billInput" destination="c9v-Dq-euz" id="JvY-2Q-YDP"/>
+                        <outlet property="customTip" destination="aRB-4S-MDC" id="22P-Xd-kAS"/>
+                        <outlet property="tipAmount" destination="jUF-IS-wcz" id="ZJA-S4-PyP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="283"/>
         </scene>
     </scenes>
 </document>
